@@ -1,0 +1,38 @@
+# MID
+
+MID is a simple service for generating unique ID numbers with simple
+guarantess.
+
+## Motivation
+
+Has a service that generate unique ID numbers and reserve a range of ID to a
+worker.
+
+## Perfomance
+
+(TODO)
+
+## High Available
+
+(TODO)
+
+## Solution
+
+Default port of service is 11522 and can be use for storage the IDs in
+memcache or redis for now.
+
+The service have this methods:
+
+* GET - Get a unique ID number.
+* RANGE (Int) - Get a range of unique ID numbers.
+* PING - Return if server is available.
+* QUIT - Disconnect.
+
+# TODO (Contributing)
+
+* Fork the project
+* Make support for more backends
+* Tests for perfomance and high available.
+* RANGE method.
+* Make ID numbers with a format per machine/service/server if you want.
+
