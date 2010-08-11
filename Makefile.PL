@@ -12,6 +12,7 @@ WriteMakefile(
         'Net::EasyTCP' => 0.26,
         'MooseX::Traits' => 0.11,
         'namespace::autoclean' => 0.11,
+        'Data::UUID' => 1.215
     },
     LICENSE => 'perl',
     #EXE_FILES => [ 'bin/sipa' ],

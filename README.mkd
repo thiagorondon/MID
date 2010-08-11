@@ -18,8 +18,9 @@ worker.
 
 ## Solution
 
-Default port of service is 11522 and can be use for storage the IDs in
-memcache or redis for now.
+Default port of service is 11522.
+
+You can use memcache or redis for incremental IDs, or UUID for generating globally/universally unique identifiers.
 
 The service have this methods:
 

@@ -16,7 +16,7 @@ has port => (
 has backend => (
     is => 'rw', 
     isa => 'Str', 
-    default => 'Redis'
+    default => 'UUID'
 );
 
 sub get_id {
