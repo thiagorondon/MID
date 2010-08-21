@@ -1,8 +1,8 @@
 #!/usr/bin/env perl
 
-use Test::More tests => 2;
+use Test::More tests => 3;
 
-use MID::Role::UUID;
+use_ok("MID::Role::UUID");
 
 my $uuid = MID::Role::UUID->meta;
 

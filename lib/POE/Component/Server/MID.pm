@@ -37,20 +37,25 @@ sub run {
             my $client_input = $_[ARG0];
 
             if ($client_input =~ /^GET$/) {
-                $_[HEAP]{client}->put($self->get_id . "\n");
+                $_[HEAP]{client}->put($self->get_id);
             }
             elsif ($client_input =~ /^RANGE ([0-9]*)$/) {
                 my $range = $1;
-                $_[HEAP]{client}->put("NOT YET\n");
+                if ($range > 999) {
+                    $_[HEAP]{client}->put("ERR, 999 is the max length");
+                } else {
+                    $_[HEAP]{client}->put($self->get_id) 
+                        for 1 .. $range;
+                }
             }
             elsif ($client_input =~ /^PING$/) {
-                $_[HEAP]{client}->put("1\n");
+                $_[HEAP]{client}->put(1);
             }
             elsif ($client_input =~ /^QUIT$/) {
                 delete $_[HEAP]{client};
             }
             else {
-                $_[HEAP]{client}->put("WHAT?\n");
+                $_[HEAP]{client}->put("WHAT?");
             }
         }
 
