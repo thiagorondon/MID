@@ -21,6 +21,8 @@ sub get {
     my $answer = <$socket>;
     close($socket);
     chomp($answer);
+    $/ = "\r";
+    chomp($answer);
     return $answer;
 }
 
