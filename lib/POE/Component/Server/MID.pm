@@ -13,17 +13,26 @@ has port => (
     default => 11522
 );
 
-has backend => (
+has backend_name => (
     is => 'rw', 
     isa => 'Str', 
     default => 'UUID'
 );
 
+has _backend => (
+    is => 'ro', 
+    lazy_build => 1
+);
+
+sub _build__backend {
+  my ($self) = @_;
+  my $cache = 'MID::Role::' . $self->backend_name;
+  return Backend->with_traits($cache)->new;
+}
+
 sub get_id {
     my $self = shift;
-    my $cache = 'MID::Role::' . $self->backend;
-    my $backend = Backend->with_traits($cache)->new;
-    return $backend->get_id;
+    return $self->_backend->get_id;
 }
 
 sub run {
@@ -31,7 +40,7 @@ sub run {
     POE::Component::Server::TCP->new(
         Port => $self->port,
         ClientConnected => sub {
-            print "connected\n";
+          #print "connected\n";
         },
         ClientInput => sub {
             my $client_input = $_[ARG0];
