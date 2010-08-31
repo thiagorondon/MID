@@ -10,7 +10,7 @@ use lib "$Bin/../lib";
 use MID::Client;
 
 my $client = new MID::Client;
-my $id = $client->get;
 
-print $id . "\n";
+print $client->get . "\n";
+
 

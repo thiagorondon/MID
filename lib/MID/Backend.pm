@@ -8,5 +8,6 @@ has server => (is => 'rw', isa => 'Str');
 has id_start => (is => 'rw', isa => 'Str', default => 0);
 has debug => (is => 'rw', isa => 'Int', default => 0);
 
+__PACKAGE__->meta->make_immutable(inline_constructor => 0);
 1;
 

@@ -7,6 +7,7 @@
 use FindBin qw($Bin);
 use lib "$Bin/../lib";
 
+
 use aliased 'POE::Component::Server::MID';
 
 my $server = MID->new;
